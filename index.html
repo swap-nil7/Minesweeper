@@ -13,7 +13,8 @@
 	        <tr ng-repeat="row in minefield.rows">
 	            <td ng-repeat="spot in row.spots" ng-click="spot.isCovered = false">
 	                <img ng-if="spot.isCovered" src="covered.png">
-	                <img ng-if="!spot.isCovered" src="empty.png">
+	                <img ng-if="!spot.isCovered && spot.content=='empty'" src="empty.png">
+	                <img ng-if="!spot.isCovered && spot.content=='bomb'" src="mine.png">
 	            </td>
 	        </tr>
 	    </table>
