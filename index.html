@@ -11,11 +11,19 @@
 	<div>
 	    <table class="minefield">
 	        <tr ng-repeat="row in minefield.rows">
-	            <td ng-repeat="spot in row.spots" ng-click="spot.isCovered = false">
-	                <img ng-if="spot.isCovered" src="covered.png">
-	                <img ng-if="!spot.isCovered && spot.content=='empty'" src="empty.png">
-	                <img ng-if="!spot.isCovered && spot.content=='bomb'" src="mine.png">
-	            </td>
+	            <td ng-repeat="spot in row.spots" ng-click="spot.isRevealed = true">
+				    <img ng-if="!spot.isRevealed" src="covered.png">
+				    <img ng-if="spot.isRevealed && spot.content == 'empty'" src="empty.png">
+				    <img ng-if="spot.isRevealed && spot.content == 'bomb'" src="mine.png">
+				    <img ng-if="spot.isRevealed && spot.content == 1" src="number-1.png">
+				    <img ng-if="spot.isRevealed && spot.content == 2" src="number-2.png">
+				    <img ng-if="spot.isRevealed && spot.content == 3" src="number-3.png">
+				    <img ng-if="spot.isRevealed && spot.content == 4" src="number-4.png">
+				    <img ng-if="spot.isRevealed && spot.content == 5" src="number-5.png">
+				    <img ng-if="spot.isRevealed && spot.content == 6" src="number-6.png">
+				    <img ng-if="spot.isRevealed && spot.content == 7" src="number-7.png">
+				    <img ng-if="spot.isRevealed && spot.content == 8" src="number-8.png">
+				</td>
 	        </tr>
 	    </table>
 	</div>
