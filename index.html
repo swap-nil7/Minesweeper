@@ -9,9 +9,11 @@
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="game.js"></script>
 	<div>
+		<h3 ng-if="hasWonMessage">You won!</h3>
+		<h3 ng-if="hasLostMessage">You lost!</h3>
 	    <table class="minefield">
 	        <tr ng-repeat="row in minefield.rows">
-	            <td ng-repeat="spot in row.spots" ng-click="spot.isRevealed = true">
+	            <td ng-repeat="spot in row.spots" ng-click="revealSpot(spot)">
 				    <img ng-if="!spot.isRevealed" src="covered.png">
 				    <img ng-if="spot.isRevealed && spot.content == 'empty'" src="empty.png">
 				    <img ng-if="spot.isRevealed && spot.content == 'bomb'" src="mine.png">

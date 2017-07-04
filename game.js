@@ -2,7 +2,31 @@
 	var app=angular.module('mine', [ ]);
 	app.controller('MinesweeperController', function($scope){
 		$scope.minefield = createMinefield();
+
+		$scope.revealSpot = function(spot){
+			spot.isRevealed=true;
+			if(spot.content=="bomb"){
+				$scope.hasLostMessage=true;
+			}
+			else{
+				if(hasWon($scope.minefield)){
+					$scope.hasWonMessage=true;
+				}
+			}
+		};
 	});
+
+	function hasWon(minefield){
+		for(var i=0; i<9; i++){
+			for(var j=0; j<9; j++){
+				var spot = getSpot(minefield, i, j);
+				if(!spot.isRevealed && spot.content!="bomb"){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 	function createMinefield() {
 	    var minefield = {};
