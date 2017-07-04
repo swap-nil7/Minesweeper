@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="mine">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body ng-controller="MinesweeperController">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+	<div>
+	    <table class="minefield">
+	        <tr ng-repeat="row in minefield.rows">
+	            <td ng-repeat="spot in row.spots" ng-click="spot.isCovered = false">
+	                <img ng-if="spot.isCovered" src="covered.png">
+	                <img ng-if="!spot.isCovered" src="empty.png">
+	            </td>
+	        </tr>
+	    </table>
+	</div>
+</body>
+</html>
